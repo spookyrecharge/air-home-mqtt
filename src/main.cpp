@@ -7,11 +7,9 @@ bool debug = true;
 
 unsigned long previousMillis = 0;
 const long interval = 10000; 
-int co2;
-int freq = 10000;
 int counter = 1;
 
-SoftwareSerial co2_serial(13, 15); // RX, TX
+SoftwareSerial co2_serial;
 
 const byte s8_co2[8] = {0xfe, 0x04, 0x00, 0x03, 0x00, 0x01, 0xd5, 0xc5};
 const byte s8_fwver[8] = {0xfe, 0x04, 0x00, 0x1c, 0x00, 0x01, 0xe4, 0x03};
@@ -75,7 +73,7 @@ void get_readings()
 
   if (debug == true)
     {
-    co2 = readco2();
+    uint16_t co2 = readco2();
     Serial.print("Iteration #"); Serial.println(counter);
     Serial.print("millis = "); Serial.println(millis());
     Serial.print("co2 = "); Serial.println(co2);
@@ -89,7 +87,27 @@ void get_readings()
 void setup()
 {
   Serial.begin(9600);  
-  co2_serial.begin(9600);
+  co2_serial.begin(9600, SWSERIAL_8N1, 13, 15, false, 256); // baud, bits, RX, TX, invert, buffer
+  Serial.println("");
+  Serial.println("");
+  Serial.print("--- START ---");
+  Serial.println("");
+
+  Serial.print("Sensor ID: ");
+  co2_serial.write(s8_id_hi, 8);
+  myread(7);
+  Serial.printf("%02x%02x", buf[3], buf[4]);
+  co2_serial.write(s8_id_lo, 8);
+  myread(7);
+  Serial.printf("%02x%02x", buf[3], buf[4]);
+  Serial.println("");
+
+  co2_serial.write(s8_fwver, 8);
+  myread(7);
+  Serial.printf("Firmware: %d.%d", buf[3], buf[4]);
+  Serial.println("");
+  Serial.println("-------------");
+  Serial.println("");
 }
 
 
