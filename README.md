@@ -3,6 +3,9 @@
 
 Home air quality station project
 
+I was worried about situation with carbon dioxide (CO2) concetration in my apartments along with humidity, so this is why I made this.
+It is much better and much cheaper than premade devices which will cost you like 200-300% more, and the most important thing that you can integrate these metrics to smart home etc.
+
 ## Components used
 
 #### Board
