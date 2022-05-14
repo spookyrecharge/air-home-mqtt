@@ -24,3 +24,7 @@ But can be also run on ArduinoIDE
 ![air-grafana](https://user-images.githubusercontent.com/5503131/165000629-41aa67e8-20fb-4538-81ff-e9d0b10fe67e.png)
 
 Details, pinout, etc: **LATER**
+
+# Pinout schema:
+![image](https://user-images.githubusercontent.com/5503131/168439977-e20a8898-139d-4627-a25d-f504d8045e54.png)
+
