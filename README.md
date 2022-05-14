@@ -21,7 +21,7 @@ Developed in VScode + PlatformIO
 But can be also run on ArduinoIDE
 
 # RESULT
-![air-grafana](https://user-images.githubusercontent.com/5503131/165000629-41aa67e8-20fb-4538-81ff-e9d0b10fe67e.png)
+![image](https://user-images.githubusercontent.com/5503131/168440375-db141415-25a8-4ed2-b14d-5ce38c3f3a5a.png)
 
 Details, pinout, etc: **LATER**
 
